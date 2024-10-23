@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/opportunitiesmanagement",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "modules\\OpportunitiesManagement\\": "app/",
+            "modules\\OpportunitiesManagement\\Database\\Factories\\": "database/factories/",
+            "modules\\OpportunitiesManagement\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "modules\\OpportunitiesManagement\\Tests\\": "tests/"
+        }
+    }
+}

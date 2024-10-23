@@ -1,0 +1,11 @@
+{
+    "name": "OpportunitiesManagement",
+    "alias": "opportunitiesmanagement",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\OpportunitiesManagement\\Providers\\OpportunitiesManagementServiceProvider"
+    ],
+    "files": []
+}
