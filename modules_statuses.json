@@ -2,5 +2,6 @@
     "UserManagement": true,
     "UserManagment": true,
     "OpportunitiesManagment": true,
-    "OpportunitiesManagement": true
+    "OpportunitiesManagement": true,
+    "User": true
 }
