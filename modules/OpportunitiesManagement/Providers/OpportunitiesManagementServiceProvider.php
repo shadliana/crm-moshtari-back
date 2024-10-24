@@ -4,6 +4,8 @@ namespace Modules\OpportunitiesManagement\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Modules\OpportunitiesManagement\app\Models\Opportunity;
+use Modules\OpportunitiesManagement\app\Policies\OpportunityPolicy;
 use Nwidart\Modules\Traits\PathNamespace;
 
 class OpportunitiesManagementServiceProvider extends ServiceProvider
@@ -12,7 +14,12 @@ class OpportunitiesManagementServiceProvider extends ServiceProvider
 
     protected string $name = 'OpportunitiesManagement';
 
-    protected string $nameLower = 'opportunitiesmanagement';
+    protected string $nameLower = 'opportunitiesManagement';
+
+    protected $policies = [
+        Opportunity::class => OpportunityPolicy::class,
+    ];
+
 
     /**
      * Boot the application events.

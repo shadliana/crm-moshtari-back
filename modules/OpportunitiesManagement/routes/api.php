@@ -14,6 +14,10 @@ use modules\OpportunitiesManagement\Http\Controllers\OpportunitiesManagementCont
  *
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('opportunitiesmanagement', OpportunitiesManagementController::class)->names('opportunitiesmanagement');
+Route::group(['prefix' => 'opportunity', 'as' => 'opportunity.'], function () {
+  Route::get('/list',[OpportunitiesManagementController::class,'index']);
+  Route::get('/{opportunity}/show',[OpportunitiesManagementController::class,'show']);
+  Route::post('/create',[OpportunitiesManagementController::class,'create']);
+  Route::put('/{opportunity}/update',[OpportunitiesManagementController::class,'update']);
+  Route::delete('/{opportunity}/delete',[OpportunitiesManagementController::class,'destroy']);
 });

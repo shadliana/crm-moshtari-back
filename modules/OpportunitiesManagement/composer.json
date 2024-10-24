@@ -24,7 +24,11 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "modules\\OpportunitiesManagement\\Tests\\": "tests/"
+            "Modules\\": "Modules/"
         }
+    },
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^11.0"
     }
 }
