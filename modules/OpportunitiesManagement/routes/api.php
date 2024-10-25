@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use modules\OpportunitiesManagement\Http\Controllers\OpportunitiesManagementController;
+use Modules\OpportunitiesManagement\App\Http\Controllers\OpportunitiesManagementController;
 
 /*
  *--------------------------------------------------------------------------
@@ -14,10 +14,12 @@ use modules\OpportunitiesManagement\Http\Controllers\OpportunitiesManagementCont
  *
 */
 
-Route::group(['prefix' => 'opportunity', 'as' => 'opportunity.'], function () {
-  Route::get('/list',[OpportunitiesManagementController::class,'index']);
-  Route::get('/{opportunity}/show',[OpportunitiesManagementController::class,'show']);
-  Route::post('/create',[OpportunitiesManagementController::class,'create']);
-  Route::put('/{opportunity}/update',[OpportunitiesManagementController::class,'update']);
-  Route::delete('/{opportunity}/delete',[OpportunitiesManagementController::class,'destroy']);
+Route::middleware('auth:api')->prefix('opportunity')->group( function () {
+    Route::get('/list',[OpportunitiesManagementController::class,'index']);
+    Route::get('/{opportunity}/show',[OpportunitiesManagementController::class,'show']);
+    Route::post('/create',[OpportunitiesManagementController::class,'create']);
+    Route::put('/{opportunity}/update',[OpportunitiesManagementController::class,'update']);
+    Route::delete('/{opportunity}/delete',[OpportunitiesManagementController::class,'destroy']);
+    Route::put('/{opportunity}/change-status',[OpportunitiesManagementController::class,'changeStatus']);
 });
+

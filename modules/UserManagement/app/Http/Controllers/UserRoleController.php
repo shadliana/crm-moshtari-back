@@ -13,13 +13,15 @@ class UserRoleController extends Controller
 {
     public function setRole(User $user, Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'role' => 'required|exists:role,id',
+
+        $args = $request->validate([
+            'role' => ['required',Rule::in(array_keys(UserRole::$roles))],
             'user_id' => 'required|exists:users,id'
         ]);
+//        dd($args);
         UserRole::query()->create([
-            'user_id' => $validator['user_id'],
-            'role_id' => $validator['role_id']
+            'user_id' => $args['user_id'],
+            'role' => $args['role'],
         ]);
         return response()->json(['message' => 'Successfully Set Roll']);
     }

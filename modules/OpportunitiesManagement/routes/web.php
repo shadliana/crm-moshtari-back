@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use modules\OpportunitiesManagement\Http\Controllers\OpportunitiesManagementController;
+use Modules\OpportunitiesManagement\app\Http\Controllers\OpportunitiesManagementController;
 
 /*
 |--------------------------------------------------------------------------

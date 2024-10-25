@@ -16,9 +16,6 @@ class OpportunitiesManagementServiceProvider extends ServiceProvider
 
     protected string $nameLower = 'opportunitiesManagement';
 
-    protected $policies = [
-        Opportunity::class => OpportunityPolicy::class,
-    ];
 
 
     /**

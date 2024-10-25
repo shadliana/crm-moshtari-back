@@ -1,11 +1,12 @@
 <?php
 
-namespace Modules\OpportunitiesManagement\Http\Controllers;
+namespace Modules\OpportunitiesManagement\app\Http\Controllers;
 
 
+use App\Http\Controllers\Controller;
 use App\Http\Models\Enum;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Modules\OpportunitiesManagement\app\Helpers\Helper;
 use Modules\OpportunitiesManagement\app\Http\Requests\OpportunityRequests;
 use Modules\OpportunitiesManagement\app\Models\Opportunity;
@@ -58,8 +59,8 @@ class OpportunitiesManagementController extends Controller
             'related_customer' => $args['related_customer'],
             'status' => Opportunity::$statuses['NEW'],
             'cost' => $args['cost'],
+            'created_by_id'=>auth()->id()
         ]);
-        $args [] = ['created_by_id' => auth()->id,];
         $query->save();
         return response()->json([
             'success' => true,
@@ -80,7 +81,7 @@ class OpportunitiesManagementController extends Controller
      */
     public function update(OpportunityRequests $opportunityRequests, Opportunity $opportunity)
     {
-        $this->authorize('update', $opportunity);
+        Gate::authorize('update', $opportunity);
         $args = $opportunityRequests->validated();
         $query = Opportunity::query()->update([
             'id' => $opportunity->id,

@@ -2,7 +2,7 @@
 
 namespace Modules\OpportunitiesManagement\app\Http\Requests;
 
-use App\Models\Clam\Administrative\ClamEncounter;
+
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Modules\OpportunitiesManagement\app\Models\Opportunity;

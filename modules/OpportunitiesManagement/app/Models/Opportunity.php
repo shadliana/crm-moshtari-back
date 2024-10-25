@@ -23,7 +23,7 @@ class Opportunity extends Model
     ];
 
     protected $casts = [
-        'status' => EnumCast::class . ':statuses'
+        'status' => EnumCast::class . ':statuses',
     ];
 
     protected $fillable = [
@@ -33,6 +33,7 @@ class Opportunity extends Model
         'status',
         'created_by_id',
     ];
+
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(
