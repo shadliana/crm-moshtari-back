@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('enum', function (Blueprint $table) {
             $table->id();
-            $table->string('section')->index();
             $table->string('name')->nullable();
             $table->string('enum')->nullable();
             $table->timestamps();

@@ -24,7 +24,7 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 
 });
 Route::group(['prefix' => 'user-role', 'as' => 'user-role.'], function () {
-    Route::post("/set-roll", [UserRoleController::class, 'setRole']);
+    Route::post("/set-role", [UserRoleController::class, 'setRole']);
 });
 Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
     Route::get("/list", [UserController::class, 'users']);

@@ -12,8 +12,8 @@ class UserRole extends Model
     protected $table = 'user_role';
 
     public static array $roles = [
-        'USER' => 1,
-        'MANAGER' => 2,
+        'MANAGER' => 1,
+        'USER' => 2,
     ];
 
 
