@@ -12,10 +12,9 @@ class UserController extends Controller
 {
     public function users(): JsonResource
     {
-        $query = User::query();
-        return response()->json([
-            'data' => new JsonResource($query->paginate(request('perPage') ?? 10)),
-        ]);
+
+        $query = User::query()->get();
+        return new JsonResource($query);
     }
 
     public function update(Request $request, User $user)
@@ -39,11 +38,4 @@ class UserController extends Controller
         ], ['id' => $query->id]);
     }
 
-    public function destroy(User $user): JsonResource
-    {
-        $user->delete();
-        return response()->json([
-            'delete user was successful'
-        ]);
-    }
 }

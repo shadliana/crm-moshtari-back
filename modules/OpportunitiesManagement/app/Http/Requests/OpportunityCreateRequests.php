@@ -4,15 +4,17 @@ namespace Modules\OpportunitiesManagement\app\Http\Requests;
 
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\Rule;
 use Modules\OpportunitiesManagement\app\Models\Opportunity;
 
-class OpportunityRequests extends FormRequest
+class OpportunityCreateRequests extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
-     * @return bool
+     * @return \Illuminate\Auth\Access\Response
      */
     public function authorize()
     {
@@ -27,11 +29,9 @@ class OpportunityRequests extends FormRequest
     public function rules()
     {
         return [
-            'id' => 'nullable|exists:opportunity_management,id',
             'title' => 'required|string|max:255',
             'related_customer' => 'required|string|max:255',
             'cost' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
-            'status' => ['nullable', Rule::in(array_keys(Opportunity::$statuses))],
         ];
     }
 

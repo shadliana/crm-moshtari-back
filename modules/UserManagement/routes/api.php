@@ -20,7 +20,7 @@ use modules\UserManagement\Http\Controllers\UserManagementController;
 Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
     Route::post("/register", [AuthController::class, 'register']);
     Route::post("/login", [AuthController::class, 'login']);
-    Route::post("/current-user", [AuthController::class, 'getUser']);
+    Route::get("/current-user", [AuthController::class, 'getUser']);
 
 });
 Route::group(['prefix' => 'user-role', 'as' => 'user-role.'], function () {

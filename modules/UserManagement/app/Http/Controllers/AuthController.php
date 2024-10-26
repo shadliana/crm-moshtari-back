@@ -59,7 +59,7 @@ class AuthController extends Controller
     {
         try {
             if (!$user = JWTAuth::parseToken()->authenticate()) {
-                return response()->json(['error' => 'User not found'], 404);
+                return $user;
             }
         } catch (JWTException $e) {
             return response()->json(['error' => 'Invalid token'], 400);

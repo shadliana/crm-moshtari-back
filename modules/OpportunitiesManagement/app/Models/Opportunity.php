@@ -4,6 +4,7 @@ namespace Modules\OpportunitiesManagement\app\Models;
 
 
 use App\Casts\EnumCast;
+use App\Http\Models\Enum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +16,7 @@ class Opportunity extends Model
 
     protected $table = 'opportunity_management';
 
+    protected $with = ['createdBy'];
     public static array $statuses = [
         'NEW' => 1,
         'PROCESSING' => 2,
@@ -40,5 +42,11 @@ class Opportunity extends Model
             User::class,
             'created_by_id'
         );
+    }
+
+    public function getStatus($status)
+    {
+        $enum = Enum::where('enum', $status)->first();
+        return $enum->name;
     }
 }
