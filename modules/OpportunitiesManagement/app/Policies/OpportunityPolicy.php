@@ -10,7 +10,7 @@ class OpportunityPolicy
 {
     public function changeStatus(User $user)
     {
-        return $user->roles->role === UserRole::$roles['MANAGER'];
+        return  in_array( "MANAGER", array_column($user->roles->toArray(), 'role'));;
     }
 
     public function update(User $user, Opportunity $opportunity)
