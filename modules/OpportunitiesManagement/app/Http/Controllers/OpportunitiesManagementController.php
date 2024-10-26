@@ -48,11 +48,14 @@ class OpportunitiesManagementController extends Controller
             'created_by_id'=>auth()->id()
         ]);
         $query->save();
+
         return response()->json([
             'success' => true,
             'message' => __('create was successful'),
-        ], ['id' => $query->id]);
+            'id' => $query->id,
+        ], 200);
     }
+
 
     /**
      * Show the specified resource.
