@@ -8,13 +8,11 @@ Node.js (version 20.18.0)
 Running Migrations and Seeders
 Run the migrations:
 
-bash
-Copy code
+Run the migrations:
 php artisan migrate
-Then, run the seeders:
 
-bash
-Copy code
+
+Then, run the seeders:
 php artisan db:seed
 
 
